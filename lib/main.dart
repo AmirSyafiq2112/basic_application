@@ -18,35 +18,38 @@ class _MyAppState extends State<MyApp> {
     {
       'questionText': 'What\'s your favorite color?',
       'answers': [
-        'Black',
-        'Red',
-        'Blue',
-        'White',
+        {'text': 'Red', 'score': 10},
+        {'text': 'Blue', 'score': 8},
+        {'text': 'Black', 'score': 5},
+        {'text': 'White', 'score': 5},
       ]
     },
     {
       'questionText': 'What\'s your favorite animal?',
       'answers': [
-        'Rabbit',
-        'Snake',
-        'Elephant',
-        'Lion',
+        {'text': 'Rabbit', 'score': 4},
+        {'text': 'Snake', 'score': 1},
+        {'text': 'Elephant', 'score': 8},
+        {'text': 'Lion', 'score': 10},
       ]
     },
     {
       'questionText': 'Who\'s your favorite instructor?',
       'answers': [
-        'Net Ninja',
-        'Max',
-        'Hex',
-        'Codetrain',
+        {'text': 'Net Ninja', 'score': 10},
+        {'text': 'Max', 'score': 8},
+        {'text': 'Hex', 'score': 0},
+        {'text': 'Codetrain', 'score': 4},
       ]
     },
   ]; //can be accessed in build
 
   var _questionIndex = 0;
+  var _totalScore = 0;
 
-  void _answerQuestion() {
+  void _answerQuestion(int score) {
+    _totalScore += score;
+
     // if (_questionIndex < (_questions.length - 1))
     setState(() {
       _questionIndex = _questionIndex + 1;
